@@ -1,32 +1,19 @@
-
 import os
 import discord
 
-TOKEN = 
+from discord.ext import commands
+from dotenv import load_dotenv
+
+load_dotenv()
+TOKEN = os.getenv('TOKEN')
 
 client = discord.Client()
+bot = commands.Bot(command_prefix='+')
 
-# from discord.ext import commands
-# bot = commands.Bot(command_prefix='+')
 
-# @bot.event
-# async def on_ready():
-#     print(f'{client.user} test test')
+@bot.command()
+async def birl(ctx, arg1, arg2):
+    await ctx.send('SAIU DA JAULA O MONSTRO {} - e ce passou {} e {}'.format(ctx.author, arg1, arg2))
 
-# @bot.command(pass_context=True)
-# async def birl(ctx):
-#     await ctx.say('SAIU DA JAULA O MONSTRO')
 
-@client.event
-async def on_ready():
-     print(f'{client.user} test test')
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-    
-    if message.content.startswith('+birl'):
-        await message.channel.send('SAIU DA JAULA O MONSTRO')
-
-client.run(TOKEN)
+bot.run(TOKEN)
