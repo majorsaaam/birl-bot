@@ -16,7 +16,7 @@ class Scoreboard:
     def add(self, workout):
       self.__checkDate()
       keyvalue = {workout.usuario : workout.repeticao} 
-      
+
       if (workout.nome not in self.scores):
         self.scores[workout.nome] = [keyvalue]
       else:
@@ -35,5 +35,8 @@ test.add(wkteste)
 
 outro = Exercicio('abdominal', 20, 'definitelynotsam')
 test.add(outro)
+
+outro2 = Exercicio('flexao', 20, 'definitelynotsam')
+test.add(outro2)
 
 print(test.status())
