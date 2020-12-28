@@ -1,5 +1,4 @@
 from datetime import datetime
-from exercicio import Exercicio
 
 class Scoreboard:
     def __init__(self):
