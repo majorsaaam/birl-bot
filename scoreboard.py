@@ -24,19 +24,3 @@ class Scoreboard:
 
     def status(self):
       return self.scores
-
-
-
-
-wkteste = Exercicio('abdominal', 30, 'definitelynotsam')
-
-test = Scoreboard()
-test.add(wkteste)
-
-outro = Exercicio('abdominal', 20, 'definitelynotsam')
-test.add(outro)
-
-outro2 = Exercicio('flexao', 20, 'definitelynotsam')
-test.add(outro2)
-
-print(test.status())
