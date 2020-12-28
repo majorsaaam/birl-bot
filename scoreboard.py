@@ -14,12 +14,16 @@ class Scoreboard:
 
     def add(self, workout):
       self.__checkDate()
-      keyvalue = {workout.usuario : workout.repeticao} 
+      # keyvalue = {workout.usuario: int(workout.repeticao) * int(workout.serie)} 
+      # print(workout.usuario, keyvalue)
+      keyvalue = {}
+      keyvalue[str(workout.usuario)] = int(workout.repeticao) * int(workout.serie)
 
       if (workout.nome not in self.scores):
         self.scores[workout.nome] = [keyvalue]
       else:
         self.scores[workout.nome].append(keyvalue)
 
-    def status(self):
-      return self.scores
+    def status(self, query):
+      print(self.scores)
+      return self.scores[query]

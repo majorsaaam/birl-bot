@@ -3,4 +3,4 @@ class Exercicio:
         self.nome = nome
         self.repeticao = repeticao
         self.serie = serie
-        self.usuarios = usuario
+        self.usuario = usuario

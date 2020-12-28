@@ -17,7 +17,7 @@ async def birl(ctx, *args):
     if len(args) == 0:
         await ctx.send('Zero argumentos recebidos, esperado pelo menos 1.')
     elif len(args) == 1:
-        exibePlacarExercicio()
+        exibePlacarExercicio(args)
     elif len(args) == 2:
         registraExercicio(ctx.author, args)
     else:
@@ -26,8 +26,9 @@ async def birl(ctx, *args):
 def registraExercicio(author, args):
     repeticoesSeries = args[1].split(":")
     registroExercicio = Exercicio(args[0], repeticoesSeries[0], repeticoesSeries[1], author)
+    scoreboard.add(registroExercicio)
 
-def exibePlacarExercicio():
-    scoreboard.status()
+def exibePlacarExercicio(args):
+    scoreboard.status(args[0])
 
 bot.run(TOKEN)
